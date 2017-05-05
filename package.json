@@ -1,0 +1,8 @@
+{
+  "name": "gulp-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/RalfZhang/gulp-boilerplate.git",
+  "author": "RalfZhang",
+  "license": "MIT"
+}
