@@ -1,0 +1,1 @@
+document.querySelector('.wrap').textContent='Hello'
