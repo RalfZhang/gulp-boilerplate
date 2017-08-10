@@ -7,6 +7,8 @@ var path = require('path');
 var LessAutoprefix = require('less-plugin-autoprefix');
 var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 
+var sass = require('gulp-sass');
+
 
 var babel = require('gulp-babel');
 
@@ -22,9 +24,10 @@ gulp.task('browser-sync', function () {
         }
     });
     gulp.watch('src/*.less', ['less']);
+    gulp.watch('src/*.scss', ['scss']);
     gulp.watch('src/*.js', ['js']);
     gulp.watch('index.html', ['html']);
-});
+})
 
 
 gulp.task('html', function () {
@@ -42,6 +45,16 @@ gulp.task('less', function () {
         .pipe(gulp.dest('dist'))
         .pipe(reload({ stream: true }))
 })
+
+gulp.task('scss', function () {
+    return gulp.src('src/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist'))
+        .pipe(reload({ stream: true }))
+})
+
 
 gulp.task('js', function () {
     console.log('js-----doing---------')
