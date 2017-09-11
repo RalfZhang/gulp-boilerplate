@@ -68,7 +68,7 @@ gulp.task('less', function () {
 gulp.task('scss', function () {
     return gulp.src(pathFiles.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: autoprefixConfig
         }))
